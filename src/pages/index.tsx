@@ -28,7 +28,7 @@ const list : HostList[] = [
     hostName : "AviUtl-Plugins",
     pluginsList : [
       {
-        name : "AviUtl-ImageMagick-File-Reader",
+        name : "ImageMagick-File-Reader",
         repoName : "AviUtl-ImageMagick-File-Reader",
         search : "",
         description : [
@@ -67,7 +67,7 @@ const list : HostList[] = [
     hostName : "AviUtl-Scripts",
     pluginsList : [
       {
-        name : "AviUtl-ImageLoader_M-Script",
+        name : "ImageLoader_M",
         repoName : "AviUtl-ImageLoader_M-Script",
         search : "",
         description : [
@@ -75,11 +75,19 @@ const list : HostList[] = [
         ],
       },
       {
-        name : "AviUtl-Bevel_And_Emboss_M-Script",
+        name : "Bevel_And_Emboss_M",
         repoName : "AviUtl-Bevel_And_Emboss_M-Script",
         search : "",
         description : [
-          "",
+          "gometh兄貴のベベルとエンボス スクリプトを高速化する試み",
+        ],
+      },
+      {
+        name : "TA_HideSquare_M",
+        repoName : "AviUtl-TA_HideSquare_M-Script",
+        search : "",
+        description : [
+          "四角に隠れて登場するスクリプト",
         ],
       },
     ],
