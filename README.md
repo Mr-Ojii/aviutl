@@ -1,5 +1,10 @@
 # aviutl-plugins-next.js
 
-Mr-OjiiがメンテナンスしているAviUtlのプラグインやスクリプトのリストをnext.jsでまとめる。
+Mr-OjiiがメンテナンスしているAviUtlで使用可能な
+
+- プラグイン
+- スクリプト
+
+のリストをNext.jsでまとめる。
 
 Next.jsがわからんのでArchivedです。
