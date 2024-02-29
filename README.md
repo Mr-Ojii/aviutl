@@ -1,4 +1,4 @@
-# aviutl-plugins-next.js
+# aviutl-next.js
 
 Mr-OjiiがメンテナンスしているAviUtlで使用可能な
 
@@ -8,3 +8,5 @@ Mr-OjiiがメンテナンスしているAviUtlで使用可能な
 のリストをNext.jsでまとめる。
 
 Next.jsがわからんのでArchivedです。
+
+[作り直しました。こちらからご覧ください。](https://github.com/Mr-Ojii/aviutl)
