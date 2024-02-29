@@ -1,0 +1,209 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.jsx';
+
+interface PluginData
+{
+  name : string;
+  repoName : string;
+  search : string;
+  description : string;
+}
+
+interface HostList
+{
+  hostName : string;
+  pluginsList : PluginData[];
+}
+
+const list : HostList[] = [
+  {
+    hostName : "AviUtl プラグイン",
+    pluginsList : [
+      {
+        name : "ImageMagick File Reader",
+        repoName : "AviUtl-ImageMagick-File-Reader",
+        search : "",
+        description : "ImageMagickを使用し、画像ファイルの読み込みを試みる入力プラグイン(連番対応)",
+      },
+      {
+        name : "AviUtl-Shutdown-Plugin",
+        repoName : "AviUtl-Shutdown-Plugin",
+        search : "",
+        description : "起動から30秒後にAviUtlをシャットダウンするプラグイン・スクリプト(ネタプラグイン)",
+      },
+      {
+        name : "L-SMASH Works (Mr-Ojii版)",
+        repoName : "L-SMASH-Works-Auto-Builds",
+        search : "Mr-Ojii_Mr-Ojii",
+        description : "お馴染みの入力プラグイン",
+      },
+      {
+        name : "MotionTracking MKII Plus",
+        repoName : "MotionTracking_MKII_Plus",
+        search : "",
+        description : "MaverickTse氏のMotionTracking MKIIに改良を加えたプラグイン",
+      },
+    ],
+  },
+  {
+    hostName : "AviUtl スクリプト",
+    pluginsList : [
+      {
+        name : "ImageLoader_M",
+        repoName : "AviUtl-ImageLoader_M-Script",
+        search : "",
+        description : "最大画像サイズを超える画像のロードを行うスクリプト",
+      },
+      {
+        name : "Bevel_And_Emboss_M",
+        repoName : "AviUtl-Bevel_And_Emboss_M-Script",
+        search : "",
+        description : "gometh兄貴のベベルとエンボス スクリプトを高速化する試み",
+      },
+      {
+        name : "TA_HideSquare_M",
+        repoName : "AviUtl-TA_HideSquare_M-Script",
+        search : "",
+        description : "四角に隠れて登場するスクリプト",
+      },
+    ],
+  },
+  {
+    hostName : "Susie プラグイン",
+    pluginsList : [
+      {
+        name : "ifheif",
+        repoName : "ifheif",
+        search : "",
+        description : "HEIF(.heif/.heic)/AVIF(.avif)を読み込むためのプラグイン(AviUtlの拡張編集でも使用できます)",
+      },
+    ],
+  },
+]
+---
+
+<Layout title="Mr-OjiiのAviUtlプラグイン・スクリプト">
+	<main>
+		<h1>Mr-OjiiのAviUtlプラグイン・スクリプト</h1>
+    <h2>目次</h2>
+    <div class="index">
+      {
+        list.map((hostitem) => (
+          <h3>{hostitem.hostName}</h3>
+          <ul>
+            {
+              hostitem.pluginsList.map((item) => {
+                const itemhref = "#" + item.name;
+                return (
+                  <a href={itemhref}><li>{item.name}</li></a>
+                )
+              })
+            }
+          </ul>
+        ))
+      }
+    </div>
+
+    <h2>内容</h2>
+		{
+			list.map((hostitem) => (
+				<h3>{hostitem.hostName}</h3>
+				<ul role="list" class="link-card-grid">
+					{
+						hostitem.pluginsList.map((item) => (
+							<Card
+								name={item.name}
+								repoName={item.repoName}
+								body={item.description}
+                search={item.search}
+								client:load
+							/>
+						))
+					}
+				</ul>
+			))
+		}
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	.astro-a {
+		position: absolute;
+		top: -32px;
+		left: 50%;
+		transform: translatex(-50%);
+		width: 220px;
+		height: auto;
+		z-index: -1;
+	}
+
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.instructions {
+		margin-bottom: 2rem;
+		border: 1px solid rgba(var(--accent-light), 25%);
+		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
+		padding: 1.5rem;
+		border-radius: 8px;
+	}
+	.instructions code {
+		font-size: 0.8em;
+		font-weight: bold;
+		background: rgba(var(--accent-light), 12%);
+		color: rgb(var(--accent-light));
+		border-radius: 4px;
+		padding: 0.3em 0.4em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent-light));
+	}
+  h1 {
+    color: lightgray;
+  }
+  h2 {
+    color: #666eff;
+  }
+  h3 {
+    color: #5258cc;
+  }
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
+  .index {
+    border: solid 2px #323742;
+    border-radius: 7px;
+    padding: 1em;
+    background-color: #23262d;
+  }
+  .index h3 {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+  }
+  .index ul {
+    margin: 0;
+  }
+  .index a {
+    color: lightgray;
+  }
+  .index a:is(:hover) {
+      color: rgb(var(--release-accent-light));
+  }
+</style>
