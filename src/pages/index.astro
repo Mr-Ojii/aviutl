@@ -8,6 +8,7 @@ interface PluginData
   repoName : string;
   search : string;
   description : string;
+  nicovideoID : string;
 }
 
 interface HostList
@@ -25,24 +26,28 @@ const list : HostList[] = [
         repoName : "AviUtl-ImageMagick-File-Reader",
         search : "",
         description : "ImageMagickを使用し、画像ファイルの読み込みを試みる入力プラグイン(連番対応)",
+        nicovideoID: "",
       },
       {
         name : "AviUtl-Shutdown-Plugin",
         repoName : "AviUtl-Shutdown-Plugin",
         search : "",
         description : "起動から30秒後にAviUtlをシャットダウンするプラグイン・スクリプト(ネタプラグイン)",
+        nicovideoID : "",
       },
       {
         name : "L-SMASH Works (Mr-Ojii版)",
         repoName : "L-SMASH-Works-Auto-Builds",
         search : "Mr-Ojii_Mr-Ojii",
         description : "お馴染みの入力プラグイン",
+        nicovideoID : "",
       },
       {
         name : "MotionTracking MKII Plus",
         repoName : "MotionTracking_MKII_Plus",
         search : "",
         description : "MaverickTse氏のMotionTracking MKIIに改良を加えたプラグイン",
+        nicovideoID : "",
       },
     ],
   },
@@ -54,24 +59,28 @@ const list : HostList[] = [
         repoName : "AviUtl-ImageLoader_M-Script",
         search : "",
         description : "最大画像サイズを超える画像のロードを行うスクリプト",
+        nicovideoID : "",
       },
       {
         name : "Bevel_And_Emboss_M",
         repoName : "AviUtl-Bevel_And_Emboss_M-Script",
         search : "",
         description : "gometh兄貴のベベルとエンボス スクリプトを高速化する試み",
+        nicovideoID : "sm40185819",
       },
       {
         name : "TA_HideSquare_M",
         repoName : "AviUtl-TA_HideSquare_M-Script",
         search : "",
         description : "四角に隠れて登場するスクリプト",
+        nicovideoID : "sm43186514",
       },
       {
         name : "AutoClipping_M",
         repoName : "AviUtl-AutoClipping_M-Script",
         search : "",
         description : "透明部分を自動的にクリッピングするスクリプト",
+        nicovideoID : "sm43517777",
       },
     ],
   },
@@ -83,6 +92,7 @@ const list : HostList[] = [
         repoName : "ifheif",
         search : "",
         description : "HEIF(.heif/.heic)/AVIF(.avif)を読み込むためのプラグイン(AviUtlの拡張編集でも使用できます)",
+        nicovideoID : "",
       },
     ],
   },
@@ -130,6 +140,29 @@ const list : HostList[] = [
 				</ul>
 			))
 		}
+    <h2>ニコニコ動画</h2>
+    {
+      list.map((hostitem) => (
+				<div>
+        {
+          hostitem.pluginsList.map((item) => (
+            <div>
+              {
+                item.nicovideoID ? (
+                  <div>
+                    <h3>{item.name}</h3>
+                    <script is:inline type="application/javascript" src={`https://embed.nicovideo.jp/watch/${item.nicovideoID}/script?w=640&h=360`}></script><noscript><a href={`https://www.nicovideo.jp/watch/${item.nicovideoID}`}>{item.name}</a></noscript>
+                  </div>
+                  ) : (
+                    <></>
+                  )
+              }
+            </div>
+          ))
+        }
+				</div>
+      ))
+    }
 	</main>
 </Layout>
 
