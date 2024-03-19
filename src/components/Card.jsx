@@ -49,6 +49,11 @@ export default function Card(props) {
                 <p>
                     {props.body}
                 </p>
+                {
+                    props.nicovideoID ?
+                    <p><a href={`https://www.nicovideo.jp/watch/${props.nicovideoID}`} target="_blank" rel="noreferrer noopener"><wbr/>ニコ動</a></p> :
+                    <></>
+                }
                 <div className="release-card">
                     <a href={downloadUrl}>{releaseName}</a>
                 </div>

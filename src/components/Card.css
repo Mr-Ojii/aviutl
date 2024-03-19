@@ -70,3 +70,10 @@ p {
 .release-card:is(:hover, :focus-within) h3 {
     color: rgb(var(--release-accent-light));
 }
+
+p > a {
+  color: lightgray;
+}
+p > a:is(:hover) {
+    color: rgb(var(--release-accent-light));
+}

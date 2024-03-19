@@ -133,6 +133,7 @@ const list : HostList[] = [
 								repoName={item.repoName}
 								body={item.description}
                 search={item.search}
+                nicovideoID={item.nicovideoID}
 								client:load
 							/>
 						))
@@ -140,29 +141,6 @@ const list : HostList[] = [
 				</ul>
 			))
 		}
-    <h2>ニコニコ動画</h2>
-    {
-      list.map((hostitem) => (
-				<div>
-        {
-          hostitem.pluginsList.map((item) => (
-            <div>
-              {
-                item.nicovideoID ? (
-                  <div>
-                    <h3>{item.name}</h3>
-                    <script is:inline type="application/javascript" src={`https://embed.nicovideo.jp/watch/${item.nicovideoID}/script?w=640&h=360`}></script><noscript><a href={`https://www.nicovideo.jp/watch/${item.nicovideoID}`}>{item.name}</a></noscript>
-                  </div>
-                  ) : (
-                    <></>
-                  )
-              }
-            </div>
-          ))
-        }
-				</div>
-      ))
-    }
 	</main>
 </Layout>
 
